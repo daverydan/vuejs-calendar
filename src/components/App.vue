@@ -6,8 +6,11 @@
 	export default {
 		data() {
 			return {
-				msg: 'Hello Danny'
+				msg: 'Hello Danny',
 			};
 		},
+		created() {
+			console.log(this.$moment);
+		}
 	}
 </script>
