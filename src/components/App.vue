@@ -1,6 +1,9 @@
 <template>
 	<div>
-		<div v-for="day in days">{{ day }}</div>
+		<div v-for="week in weeks">
+			<strong>Week</strong>
+			<div v-for="day in week">{{ day }}</div>
+		</div>
 	</div>
 </template>
 
@@ -48,6 +51,22 @@
 				}
 
 				return days;
+			},
+
+			weeks() {
+				// multidimensional array
+				let weeks = [];
+				let week = [];
+				// iterate over every day of this.days
+				// alias an individual day with let day
+				for (let day of this.days) {
+					week.push(day);
+					if (week.length === 7) {
+						weeks.push(week);
+						week = [];
+					}
+				}
+				return weeks;
 			}
 		}
 	}
