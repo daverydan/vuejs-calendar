@@ -1,23 +1,18 @@
 <template>
-	<!-- day is a moment object, therefore it has methods available to it -->
-	<!-- my attempt
-	 <div class="{ 'day': true, 'today': day === today }">{{ day.format('D') }}</div> -->
 	<div :class="classObject">{{ day.format('D') }}</div>
 </template>
 
 <script>
 	export default {
 		props: ['day'],
-		data() {
-			return {
-				// today: this.day.isSame(this.$moment(), 'day')
-			}
-		},
 		computed: {
 			classObject() {
+				let today = this.day.isSame(this.$moment(), 'day');
 				return {
 					day: true,
-					today: this.day.isSame(this.$moment(), 'day')
+					today: this.day.isSame(this.$moment(), 'day'),
+					// same or before current date & !today
+					past: this.day.isSameOrBefore(this.$moment(), 'day') && !today
 				};
 			}
 		}
