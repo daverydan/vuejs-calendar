@@ -23,16 +23,14 @@
 
 	export default {
 		components: { CalendarDay },
-		data() {
-			return {
-				month: 4,
-				year: 2018
-			};
-		},
-		created() {
-			// console.log(this.$moment);
-		},
+
 		computed: {
+			month() { // get month from store
+				return this.$store.state.currentMonth
+			},
+			year() { // get year from store
+				return this.$store.state.currentYear
+			},
 			days() {
 				// Generating all days in current month
 				let days = [];
