@@ -1,5 +1,9 @@
 <template>
-	<div>{{ formattedDate }}</div>
+	<div>
+		<div>{{ formattedDate }}</div>
+		<button @click="dec">-</button>
+		<button @click="inc">+</button>
+	</div>
 </template>
 
 <script>
@@ -13,6 +17,16 @@
 			},
 			year() { // get year from store
 				return this.$store.state.currentYear
+			}
+		},
+
+		methods: {
+			dec() {
+				console.log('dec')
+			},
+
+			inc() {
+				console.log('inc')
 			}
 		}
 	}
