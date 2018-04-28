@@ -1,6 +1,8 @@
 <template>
 	<!-- day is a moment object, therefore it has methods available to it -->
-	<div class="day">{{ day.format('D') }}</div>
+	<!-- my attempt
+	 <div class="{ 'day': true, 'today': day === today }">{{ day.format('D') }}</div> -->
+	<div :class="classObject">{{ day.format('D') }}</div>
 </template>
 
 <script>
@@ -8,7 +10,15 @@
 		props: ['day'],
 		data() {
 			return {
-
+				// today: this.day.isSame(this.$moment(), 'day')
+			}
+		},
+		computed: {
+			classObject() {
+				return {
+					day: true,
+					today: this.day.isSame(this.$moment(), 'day')
+				};
 			}
 		}
 	}
