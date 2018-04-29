@@ -1,5 +1,10 @@
 <template>
-	<div :class="classObject" @click="captureClick">{{ day.format('D') }}</div>
+	<div :class="classObject" @click="captureClick">
+		{{ day.format('D') }}
+		<ul class="event-list">
+			<li v-for="event in events">{{ event.desc }}</li>
+		</ul>
+	</div>
 </template>
 
 <script>
@@ -7,6 +12,16 @@
 		props: ['day'],
 		
 		computed: {
+			events() {
+				let mockData = [
+					{ desc: 'Random event 1', date: this.$moment('2018-04-29', 'YYYY-MM_DD') },
+					{ desc: 'Random event 2', date: this.$moment('2018-04-30', 'YYYY-MM_DD') },
+					{ desc: 'Random event 3', date: this.$moment('2018-05-01', 'YYYY-MM_DD') }
+				];
+
+				return mockData.filter(event => event.date.isSame(this.day, 'day'));
+			},
+
 			classObject() {
 				let today = this.day.isSame(this.$moment(), 'day');
 				return {
