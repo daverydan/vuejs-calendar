@@ -32,6 +32,12 @@ export default new Vuex.Store({
 		},
 		eventFormActive(state, payload) {
 			state.eventFormActive = payload;
+		},
+		addEvent(state, payload) {
+			state.events.push({
+				desc: payload,
+				date: moment()
+			});
 		}
 	}, // mutations
 });
