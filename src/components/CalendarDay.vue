@@ -13,13 +13,7 @@
 		
 		computed: {
 			events() {
-				let mockData = [
-					{ desc: 'Random event 1', date: this.$moment('2018-04-29', 'YYYY-MM_DD') },
-					{ desc: 'Random event 2', date: this.$moment('2018-04-30', 'YYYY-MM_DD') },
-					{ desc: 'Random event 3', date: this.$moment('2018-05-01', 'YYYY-MM_DD') }
-				];
-
-				return mockData.filter(event => event.date.isSame(this.day, 'day'));
+				return this.$store.state.events.filter(event => event.date.isSame(this.day, 'day'));
 			},
 
 			classObject() {
