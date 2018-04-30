@@ -2,7 +2,7 @@
 	<div id="event-form" :class="{ active: active }" :style="{ top: top, left: left }">
 		<h4>Add an event</h4>
 		<div class="text">
-			<input type="text" v-model="desc" @keyup.enter="create">
+			<input type="text" v-model="desc" @keyup.enter="create" placeholder="Dinner at Poncho's">
 		</div>
 		<div class="buttons">
 			<button @click="create">Create</button>
@@ -35,8 +35,10 @@
 				this.$store.commit('eventFormActive', false);
 			},
 			create() {
+				if (!this.desc) return;
 				this.$store.commit('addEvent', this.desc);
-				this.close();
+				this.desc = '';
+				this.$store.commit('eventFormActive', false);
 			}
 		}
 	}
