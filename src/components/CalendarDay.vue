@@ -17,12 +17,15 @@
 			},
 
 			classObject() {
+				let eventFormDate = this.$store.state.eventFormDate;
+				let eventFormActive = this.$store.state.eventFormActive;
 				let today = this.day.isSame(this.$moment(), 'day');
 				return {
 					day: true,
 					today: this.day.isSame(this.$moment(), 'day'),
 					// same or before current date & !today
-					past: this.day.isSameOrBefore(this.$moment(), 'day') && !today
+					past: this.day.isSameOrBefore(this.$moment(), 'day') && !today,
+					active: eventFormDate.isSame(this.day, 'day') && eventFormActive
 				};
 			}
 		}, // computed
