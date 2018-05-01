@@ -16,8 +16,13 @@ app.get('/', (req, res) => {
 
 });
 
+let events = [];
+app.use(require('body-parser').json());
 app.post('/add_event', (req, res) => {
-	console.log('Received');
+	// console.log('Received');
+	// console.log(req.body);
+	events.push(req.body);
+	res.sendStatus(200);
 });
 
 const server = http.createServer(app);
