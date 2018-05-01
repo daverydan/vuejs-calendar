@@ -16,6 +16,10 @@ app.get('/', (req, res) => {
 
 });
 
+app.post('/add_event', (req, res) => {
+	console.log('Received');
+});
+
 const server = http.createServer(app);
 
 if (process.env.NODE_ENV === 'development') {
