@@ -40,7 +40,7 @@
 			},
 			create() {
 				if (!this.desc) return;
-				this.$store.commit('addEvent', this.desc);
+				this.$store.dispatch('addEvent', this.desc);
 				this.desc = '';
 				this.$store.commit('eventFormActive', false);
 			}
