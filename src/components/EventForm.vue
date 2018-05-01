@@ -40,9 +40,10 @@
 			},
 			create() {
 				if (!this.desc) return;
-				this.$store.dispatch('addEvent', this.desc);
-				this.desc = '';
-				this.$store.commit('eventFormActive', false);
+				this.$store.dispatch('addEvent', this.desc).then(_ => {
+					this.desc = '';
+					this.$store.commit('eventFormActive', false);
+				});
 			}
 		},
 
