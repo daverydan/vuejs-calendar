@@ -10,11 +10,19 @@ import App from './components/App.vue';
 moment.tz.setDefault('UTC');
 Object.defineProperty(Vue.prototype, '$moment', { get() { return this.$root.moment } });
 
-let events = [
+/*let events = [
 	{ desc: 'Random event 1', date: moment('2018-04-29', 'YYYY-MM_DD') },
 	{ desc: 'Random event 2', date: moment('2018-04-30', 'YYYY-MM_DD') },
 	{ desc: 'Random event 3', date: moment('2018-05-01', 'YYYY-MM_DD') }
-];
+];*/
+
+let events = window.__INITIAL_STATE__.map(event => {
+	return {
+		desc: event.desc,
+		date: moment(event.date)
+	}
+});
+
 // initialState is empty {}, merge in the state in store, override with events 
 let initialState = Object.assign({}, store.state, { events });
 console.log(initialState);

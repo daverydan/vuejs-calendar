@@ -9,7 +9,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
 	state: {
 		currentYear: 2018,
-		currentMonth: 4,
+		currentMonth: 5,
 		eventFormPosX: 0,
 		eventFormPosY: 0,
 		eventFormActive: false,
