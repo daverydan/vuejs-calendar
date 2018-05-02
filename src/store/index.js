@@ -14,9 +14,7 @@ export default new Vuex.Store({
 		eventFormPosY: 0,
 		eventFormActive: false,
 		events: [
-			{ desc: 'Random event 1', date: moment('2018-04-29', 'YYYY-MM_DD') },
-			{ desc: 'Random event 2', date: moment('2018-04-30', 'YYYY-MM_DD') },
-			{ desc: 'Random event 3', date: moment('2018-05-01', 'YYYY-MM_DD') }
+			
 		],
 		eventFormDate: moment()
 	}, // state
